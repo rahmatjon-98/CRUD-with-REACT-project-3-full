@@ -131,7 +131,7 @@ function App() {
   }
 
   let [inpSearch, setInpSearch] = useState("");
-  let [inpStatus, setinpStatus] = useState("");
+  let [inpStatus, setinpStatus] = useState("all");
 
   let [addName, setaddName] = useState("");
   let [addImg, setaddImg] = useState("");
@@ -477,15 +477,18 @@ function App() {
 
         <div className="p-20 flex flex-wrap  gap-7 px-24 ">
           {carts
-            .filter((e) =>
-              e.name.toLowerCase().includes(
-                inpSearch.toLowerCase()
-                //  ||
-                //   e.status.includes(
-                //     inpStatus == "active" ? true : "inactive" ? false : ""
-                //   )
-              )
-            )
+            .filter((e) => {
+              const nameMatch = e.name
+                .toLowerCase()
+                .includes(inpSearch.toLowerCase());
+
+              const statusMatch =
+                inpStatus === "all" ||
+                (inpStatus === "active" && e.status) ||
+                (inpStatus === "inactive" && !e.status);
+
+              return nameMatch && statusMatch;
+            })
             .map((e) => {
               return (
                 <div
