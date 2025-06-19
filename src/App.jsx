@@ -513,13 +513,13 @@ function App() {
                   <div className="flex justify-between pt-2.5">
                     <button
                       onClick={() => openeditmodal(e)}
-                      className="text-black border text-[12px] px-4 "
+                      className=" border py-1 w-2/5 border-[#1976d2] rounded text-[#1976d2] outline-none hover:bg-blue-50"
                     >
                       edit
                     </button>
                     <button
                       onClick={() => delCart(e.id)}
-                      className="text-black border text-[12px] px-4 "
+                      className="border py-1 w-2/5 border-[#1976d2] rounded text-[#1976d2] outline-none hover:bg-blue-50 "
                     >
                       delete
                     </button>
